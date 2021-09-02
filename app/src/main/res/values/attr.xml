@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Tencent is pleased to support the open source community by making QMUI_Android available.
+
+ Copyright (C) 2017-2018 THL A29 Limited, a Tencent company. All rights reserved.
+
+ Licensed under the MIT License (the "License"); you may not use this file except in
+ compliance with the License. You may obtain a copy of the License at
+
+ http://opensource.org/licenses/MIT
+
+ Unless required by applicable law or agreed to in writing, software distributed under the License is
+ distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ either express or implied. See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+    <attr name="app_primary_color" format="color" /> <!-- topbar -->
+    <attr name="app_content_bg_color" format="color" /> <!-- content-->
+
+    <declare-styleable name="LineWaveVoiceView">
+        <attr name="voiceLineColor" format="color" />
+        <attr name="voiceLineWidth" format="dimension" />
+        <attr name="voiceTextColor" format="color" />
+        <attr name="voiceTextSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="color_tick" format="color" />
+        <attr name="color_checked" format="color" />
+        <attr name="color_unchecked" format="color" />
+        <attr name="color_unchecked_stroke" format="color" />
+    </declare-styleable>
+    <declare-styleable name="StatusBarHolderView">
+        <attr name="bgcolor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- indicator -->
+    <!-- 设置显示器颜色 -->
+    <attr name="tl_indicator_color" format="color" />
+    <!-- 设置显示器高度 -->
+    <attr name="tl_indicator_height" format="dimension" />
+    <!-- 设置显示器固定宽度 -->
+    <attr name="tl_indicator_width" format="dimension" />
+    <!-- 设置显示器margin,当indicator_width大于0,无效 -->
+    <attr name="tl_indicator_margin_left" format="dimension" />
+    <attr name="tl_indicator_margin_top" format="dimension" />
+    <attr name="tl_indicator_margin_right" format="dimension" />
+    <attr name="tl_indicator_margin_bottom" format="dimension" />
+    <!-- 设置显示器圆角弧度-->
+    <attr name="tl_indicator_corner_radius" format="dimension" />
+    <!-- 设置显示器上方还是下方,只对圆角矩形有用-->
+    <attr name="tl_indicator_gravity" format="enum">
+        <enum name="TOP" value="48" />
+        <enum name="BOTTOM" value="80" />
+    </attr>
+    <!-- 设置显示器为常规|三角形|背景色块|-->
+    <attr name="tl_indicator_style" format="enum">
+        <enum name="NORMAL" value="0" />
+        <enum name="TRIANGLE" value="1" />
+        <enum name="BLOCK" value="2" />
+    </attr>
+    <!-- 设置显示器长度与title一样长,只有在STYLE_NORMAL并且indicatorWidth小于零有效-->
+    <attr name="tl_indicator_width_equal_title" format="boolean" />
+    <!-- 设置显示器支持动画-->
+    <attr name="tl_indicator_anim_enable" format="boolean" />
+    <!-- 设置显示器动画时间-->
+    <attr name="tl_indicator_anim_duration" format="integer" />
+    <!-- 设置显示器支持动画回弹效果-->
+    <attr name="tl_indicator_bounce_enable" format="boolean" />
+
+    <!-- underline -->
+    <!-- 设置下划线颜色 -->
+    <attr name="tl_underline_color" format="color" />
+    <!-- 设置下划线高度 -->
+    <attr name="tl_underline_height" format="dimension" />
+    <!-- 设置下划线上方还是下方-->
+    <attr name="tl_underline_gravity" format="enum">
+        <enum name="TOP" value="48" />
+        <enum name="BOTTOM" value="80" />
+    </attr>
+
+    <!-- divider -->
+    <!-- 设置分割线颜色 -->
+    <attr name="tl_divider_color" format="color" />
+    <!-- 设置分割线宽度 -->
+    <attr name="tl_divider_width" format="dimension" />
+    <!-- 设置分割线的paddingTop和paddingBottom -->
+    <attr name="tl_divider_padding" format="dimension" />
+
+    <!-- tab -->
+    <!-- 设置tab的paddingLeft和paddingRight -->
+    <attr name="tl_tab_padding" format="dimension" />
+    <!-- 设置tab大小等分 -->
+    <attr name="tl_tab_space_equal" format="boolean" />
+    <!-- 设置tab固定大小 -->
+    <attr name="tl_tab_width" format="dimension" />
+
+    <!-- 设置tab的上下间距 -->
+    <attr name="tl_tab_marginTop" format="dimension" />
+    <attr name="tl_tab_marginBottom" format="dimension" />
+
+    <!-- tab的位置 -->
+    <attr name="tl_tab_gravity" format="enum">
+        <enum name="Top" value="0" />
+        <enum name="Bottom" value="1" />
+        <enum name="Center" value="2" />
+    </attr>
+
+    <!-- title -->
+    <!-- 设置字体大小 -->
+    <attr name="tl_textSize" format="dimension" />
+    <attr name="tl_textSelectSize" format="dimension" />
+    <attr name="tl_textUnSelectSize" format="dimension" />
+    <!-- 设置字体选中颜色 -->
+    <attr name="tl_textSelectColor" format="color" />
+    <!-- 设置字体未选中颜色 -->
+    <attr name="tl_textUnSelectColor" format="color" />
+    <!-- 设置字体加粗 -->
+    <attr name="tl_textBold" format="enum">
+        <enum name="NONE" value="0" />
+        <enum name="SELECT" value="1" />
+        <enum name="BOTH" value="2" />
+    </attr>
+    <!-- 设置字体全大写 -->
+    <attr name="tl_textAllCaps" format="boolean" />
+
+    <declare-styleable name="SlidingTabLayout">
+        <!-- indicator -->
+        <attr name="tl_indicator_color" />
+        <attr name="tl_indicator_height" />
+        <attr name="tl_indicator_width" />
+        <attr name="tl_indicator_margin_left" />
+        <attr name="tl_indicator_margin_top" />
+        <attr name="tl_indicator_margin_right" />
+        <attr name="tl_indicator_margin_bottom" />
+        <attr name="tl_indicator_corner_radius" />
+        <attr name="tl_indicator_gravity" />
+        <attr name="tl_indicator_style" />
+        <attr name="tl_indicator_width_equal_title" />
+
+        <!-- underline -->
+        <attr name="tl_underline_color" />
+        <attr name="tl_underline_height" />
+        <attr name="tl_underline_gravity" />
+
+        <!-- divider -->
+        <attr name="tl_divider_color" />
+        <attr name="tl_divider_width" />
+        <attr name="tl_divider_padding" />
+
+        <!-- tab -->
+        <attr name="tl_tab_padding" />
+        <attr name="tl_tab_space_equal" />
+        <attr name="tl_tab_width" />
+        <attr name="tl_tab_marginTop" />
+        <attr name="tl_tab_marginBottom" />
+        <attr name="tl_tab_gravity" />
+
+        <!-- title -->
+        <attr name="tl_textSelectSize" />
+        <attr name="tl_textUnSelectSize" />
+        <attr name="tl_textSelectColor" />
+        <attr name="tl_textUnSelectColor" />
+        <attr name="tl_textBold" />
+        <attr name="tl_textAllCaps" />
+
+    </declare-styleable>
+
+    <declare-styleable name="CommonTabLayout">
+        <!-- indicator -->
+        <attr name="tl_indicator_color" />
+        <attr name="tl_indicator_height" />
+        <attr name="tl_indicator_width" />
+        <attr name="tl_indicator_margin_left" />
+        <attr name="tl_indicator_margin_top" />
+        <attr name="tl_indicator_margin_right" />
+        <attr name="tl_indicator_margin_bottom" />
+        <attr name="tl_indicator_corner_radius" />
+        <attr name="tl_indicator_gravity" />
+        <attr name="tl_indicator_style" />
+        <attr name="tl_indicator_anim_enable" />
+        <attr name="tl_indicator_anim_duration" />
+        <attr name="tl_indicator_bounce_enable" />
+
+        <!-- underline -->
+        <attr name="tl_underline_color" />
+        <attr name="tl_underline_height" />
+        <attr name="tl_underline_gravity" />
+
+        <!-- divider -->
+        <attr name="tl_divider_color" />
+        <attr name="tl_divider_width" />
+        <attr name="tl_divider_padding" />
+
+        <!-- tab -->
+        <attr name="tl_tab_padding" />
+        <attr name="tl_tab_space_equal" />
+        <attr name="tl_tab_width" />
+
+        <!-- title -->
+        <attr name="tl_textSize" />
+        <attr name="tl_textSelectColor" />
+        <attr name="tl_textUnSelectColor" />
+        <attr name="tl_textBold" />
+        <attr name="tl_textAllCaps" />
+
+        <!-- icon -->
+        <!-- 设置icon宽度 -->
+        <attr name="tl_iconWidth" format="dimension" />
+        <!-- 设置icon高度 -->
+        <attr name="tl_iconHeight" format="dimension" />
+        <!-- 设置icon是否可见 -->
+        <attr name="tl_iconVisible" format="boolean" />
+        <!-- 设置icon显示位置,对应Gravity中常量值 -->
+        <attr name="tl_iconGravity" format="enum">
+            <enum name="LEFT" value="3" />
+            <enum name="TOP" value="48" />
+            <enum name="RIGHT" value="5" />
+            <enum name="BOTTOM" value="80" />
+        </attr>
+        <!-- 设置icon与文字间距 -->
+        <attr name="tl_iconMargin" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="SegmentTabLayout">
+        <!-- indicator -->
+        <attr name="tl_indicator_color" />
+        <attr name="tl_indicator_height" />
+        <attr name="tl_indicator_margin_left" />
+        <attr name="tl_indicator_margin_top" />
+        <attr name="tl_indicator_margin_right" />
+        <attr name="tl_indicator_margin_bottom" />
+        <attr name="tl_indicator_corner_radius" />
+        <attr name="tl_indicator_anim_enable" />
+        <attr name="tl_indicator_anim_duration" />
+        <attr name="tl_indicator_bounce_enable" />
+
+        <!-- divider -->
+        <attr name="tl_divider_color" />
+        <attr name="tl_divider_width" />
+        <attr name="tl_divider_padding" />
+
+        <!-- tab -->
+        <attr name="tl_tab_padding" />
+        <attr name="tl_tab_space_equal" />
+        <attr name="tl_tab_width" />
+
+        <!-- title -->
+        <attr name="tl_textSize" />
+        <attr name="tl_textSelectColor" />
+        <attr name="tl_textUnSelectColor" />
+        <attr name="tl_textBold" />
+        <attr name="tl_textAllCaps" />
+
+        <attr name="tl_bar_color" format="color" />
+        <attr name="tl_bar_stroke_color" format="color" />
+        <attr name="tl_bar_stroke_width" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="SlidingScaleTabLayout">
+        <!-- indicator -->
+        <attr name="tl_indicator_color" />
+        <attr name="tl_indicator_height" />
+        <attr name="tl_indicator_width" />
+        <attr name="tl_indicator_margin_left" />
+        <attr name="tl_indicator_margin_top" />
+        <attr name="tl_indicator_margin_right" />
+        <attr name="tl_indicator_margin_bottom" />
+        <attr name="tl_indicator_corner_radius" />
+        <attr name="tl_indicator_gravity" />
+        <attr name="tl_indicator_style" />
+        <attr name="tl_indicator_width_equal_title" />
+
+        <!-- underline -->
+        <attr name="tl_underline_color" />
+        <attr name="tl_underline_height" />
+        <attr name="tl_underline_gravity" />
+
+        <!-- divider -->
+        <attr name="tl_divider_color" />
+        <attr name="tl_divider_width" />
+        <attr name="tl_divider_padding" />
+
+        <!-- tab -->
+        <attr name="tl_tab_padding" />
+        <attr name="tl_tab_space_equal" />
+        <attr name="tl_tab_width" />
+        <attr name="tl_tab_marginTop" />
+        <attr name="tl_tab_marginBottom" />
+        <attr name="tl_tab_gravity" />
+
+        <!-- title -->
+        <attr name="tl_textSelectSize" />
+        <attr name="tl_textUnSelectSize" />
+        <attr name="tl_textSelectColor" />
+        <attr name="tl_textUnSelectColor" />
+        <attr name="tl_textBold" />
+        <attr name="tl_textAllCaps" />
+
+        <!-- 是否开启文字的图片镜像 -->
+        <attr name="tl_openTextDmg" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="MsgView">
+        <!-- 圆角矩形背景色 -->
+        <attr name="mv_backgroundColor" format="color" />
+        <!-- 圆角弧度,单位dp-->
+        <attr name="mv_cornerRadius" format="dimension" />
+        <!-- 圆角弧度,单位dp-->
+        <attr name="mv_strokeWidth" format="dimension" />
+        <!-- 圆角边框颜色-->
+        <attr name="mv_strokeColor" format="color" />
+        <!-- 圆角弧度是高度一半-->
+        <attr name="mv_isRadiusHalfHeight" format="boolean" />
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="mv_isWidthHeightEqual" format="boolean" />
+    </declare-styleable>
+
+    <!-- SettingView -->
+    <declare-styleable name="SettingView">
+        <attr name="iOSStyle" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="SettingViewItem">
+        <attr name="title" format="string" />
+        <attr name="subTitle" format="string" />
+        <attr name="titleColor" format="reference" />
+        <attr name="subTitleColor" format="reference" />
+        <attr name="titleSize" format="reference|dimension" />
+        <attr name="subTitleSize" format="reference|dimension" />
+        <attr name="drawable" format="reference" />
+        <attr name="arrow" format="reference" />
+        <attr name="check" format="reference" />
+        <attr name="image" format="reference" />
+        <attr name="clickable" format="boolean" />
+        <attr name="checked" format="boolean" />
+        <attr name="background" format="reference" />
+    </declare-styleable>
+    <!-- SettingView -->
+
+    <declare-styleable name="MarqueeViewStyle">
+        <!--        两行文字翻页时间间隔-->
+        <attr name="mvInterval" format="integer|reference" />
+        <!--        一行文字动画执行时间-->
+        <attr name="mvAnimDuration" format="integer|reference" />
+        <!--        文字大小-->
+        <attr name="mvTextSize" format="dimension|reference" />
+        <!--        文字颜色-->
+        <attr name="mvTextColor" format="color|reference" />
+        <!--        单行设置-->
+        <attr name="mvSingleLine" format="boolean" />
+        <!--        设置字体-->
+        <attr name="mvFont" format="reference" />
+        <!--        文字位置:left、center、right-->
+        <attr name="mvGravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <!--        动画滚动方向:bottom_to_top、top_to_bottom、right_to_left、left_to_right-->
+        <attr name="mvDirection">
+            <enum name="bottom_to_top" value="0" />
+            <enum name="top_to_bottom" value="1" />
+            <enum name="right_to_left" value="2" />
+            <enum name="left_to_right" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 自定义验证码输入框-->
+    <declare-styleable name="vericationCodeView">
+        <!--输入框的数量-->
+        <attr name="vcv_et_number" format="integer" />
+        <!--输入类型-->
+        <attr name="vcv_et_inputType">
+            <enum name="number" value="0" />
+            <enum name="numberPassword" value="1" />
+            <enum name="text" value="2" />
+            <enum name="textPassword" value="3" />
+        </attr>
+        <!--输入框的宽度-->
+        <attr name="vcv_et_width" format="dimension|reference" />
+        <!--输入框文字颜色-->
+        <attr name="vcv_et_text_color" format="color|reference" />
+        <!--输入框文字大小-->
+        <attr name="vcv_et_text_size" format="dimension|reference" />
+        <!--输入框背景-->
+        <attr name="vcv_et_bg" format="reference" />
+        <!--光标样式-->
+        <attr name="vcv_et_cursor" format="reference" />
+        <!--是否隐藏光标-->
+        <attr name="vcv_et_cursor_visible" format="boolean" />
+        <!--输入框间距，不输入则代表平分-->
+        <attr name="vcv_et_spacing" format="dimension|reference" />
+
+    </declare-styleable>
+
+    <declare-styleable name="CuteIndicator">
+        <attr name="IndicatorColor" format="color" />
+        <attr name="UnIndicatorColor" format="color" />
+        <attr name="IndicatorShadowColor" format="color" />
+        <attr name="IndicatorSelectedWidthDimension" format="dimension" />
+        <attr name="IndicatorDiaDimension" format="dimension" />
+        <attr name="IndicatorSpaceDimension" format="dimension" />
+        <attr name="IndicatorHeightDimension" format="dimension" />
+        <attr name="IndicatorShadowRadiusDimension" format="dimension" />
+        <attr name="IndicatorIsAnimation" format="boolean" />
+        <attr name="IndicatorIsShadow" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CropImageView">
+
+        <attr name="guidelines">
+            <enum name="off" value="0" />
+            <enum name="onTouch" value="1" />
+            <enum name="on" value="2" />
+        </attr>
+
+        <attr name="fixAspectRatio" format="boolean" />
+        <attr name="aspectRatioX" format="integer" />
+        <attr name="aspectRatioY" format="integer" />
+
+    </declare-styleable>
+    <declare-styleable name="nocropper__CropperView">
+        <attr name="nocropper__grid_color" format="color" />
+        <attr name="nocropper__grid_thickness" format="dimension" />
+        <attr name="nocropper__grid_opacity" format="float" />
+        <attr name="nocropper__padding_color" format="color" />
+        <attr name="nocropper__add_padding_to_make_square" format="boolean" />
+        <attr name="nocropper__fit_to_center" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CropIwaView">
+
+        <attr name="ci_scale_enabled" format="boolean" />
+        <attr name="ci_translation_enabled" format="boolean" />
+        <attr name="ci_max_scale" format="float" />
+        <attr name="ci_crop_scale" format="float" />
+        <attr name="ci_initial_position" format="enum">
+            <enum name="centerInside" value="0" />
+            <enum name="centerCrop" value="1" />
+        </attr>
+
+        <attr name="ci_border_color" format="color" />
+        <attr name="ci_border_width" format="dimension" />
+
+        <attr name="ci_corner_color" format="color" />
+        <attr name="ci_corner_width" format="dimension" />
+
+        <attr name="ci_grid_width" format="dimension" />
+        <attr name="ci_grid_color" format="color" />
+        <attr name="ci_draw_grid" format="boolean" />
+
+        <attr name="ci_min_crop_width" format="dimension" />
+        <attr name="ci_min_crop_height" format="dimension" />
+
+        <attr name="ci_overlay_color" format="color" />
+
+        <attr name="ci_dynamic_aspect_ratio" format="boolean" />
+        <attr name="ci_aspect_ratio_w" format="integer" />
+        <attr name="ci_aspect_ratio_h" format="integer" />
+
+        <attr name="ci_crop_shape" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="oval" value="1" />
+        </attr>
+
+    </declare-styleable>
+    <declare-styleable name="TwinklingRefreshLayout">
+        <attr name="tr_wave_height" format="dimension" />
+        <attr name="tr_head_height" format="dimension" />
+        <attr name="tr_bottom_height" format="dimension" />
+        <attr name="tr_overscroll_height" format="dimension" />
+        <attr name="tr_enable_loadmore" format="boolean" />
+        <attr name="tr_pureScrollMode_on" format="boolean" />
+        <attr name="tr_show_overlay_refreshview" format="boolean" />
+        <attr name="tr_headerView" format="dimension" />
+        <attr name="tr_bottomView" format="dimension" />
+        <attr name="onRefreshCommand" format="reference" />
+        <attr name="onLoadMoreCommand" format="reference" />
+    </declare-styleable>
+
+
+    <attr name="num" format="integer" />
+    <attr name="bg_color" format="color" />
+    <attr name="margin" format="dimension" />
+    <attr name="rd" format="dimension" />
+    <attr name="textColor" format="color" />
+    <attr name="textSize" format="dimension" />
+    <attr name="indicatorColor" format="color" />
+
+    <declare-styleable name="IndicatorView">
+        <attr name="num" />
+        <attr name="bg_color" />
+        <attr name="margin" />
+        <attr name="rd" />
+    </declare-styleable>
+    <declare-styleable name="TabLayout">
+        <attr name="textColor" />
+        <attr name="textSize" />
+        <attr name="margin" />
+        <attr name="rd" />
+        <attr name="indicatorColor" />
+    </declare-styleable>
+    <declare-styleable name="LikeView">
+        <attr name="defaultColor" format="color" />
+        <attr name="checkedColor" format="color" />
+        <attr name="ringColor" format="color" />
+        <attr name="cirRadius" format="dimension" />
+        <attr name="cycleTime" format="integer" />
+        <attr name="unSelectCycleTime" format="integer" />
+        <attr name="defaultLikeIconRes" format="reference" />
+        <attr name="checkedLikeIconRes" format="reference" />
+        <attr name="lrGroupCRatio" format="float" />
+        <attr name="lrGroupBRatio" format="float" />
+        <attr name="bGroupACRatio" format="float" />
+        <attr name="tGroupBRatio" format="float" />
+        <attr name="innerShapeScale" format="integer" />
+        <attr name="dotSizeScale" format="integer" />
+        <attr name="allowRandomDotColor" format="boolean" />
+    </declare-styleable>
+
+    <attr name="toolbar" format="reference" />
+    <attr name="album.dropdown.title.color" format="reference|color" />
+    <attr name="album.dropdown.count.color" format="reference|color" />
+    <attr name="album.element.color" format="reference|color" />
+    <attr name="album.thumbnail.placeholder" format="reference|color" />
+    <attr name="album.emptyView" format="reference" />
+    <attr name="album.emptyView.textColor" format="reference|color" />
+    <attr name="listPopupWindowStyle" format="reference" />
+    <attr name="page.bg" format="reference|color" />
+    <attr name="bottomToolbar.bg" format="reference|color" />
+    <attr name="bottomToolbar.preview.textColor" format="reference|color" />
+    <attr name="bottomToolbar.apply.textColor" format="reference|color" />
+    <attr name="preview.bottomToolbar.back.textColor" format="reference|color" />
+    <attr name="preview.bottomToolbar.apply.textColor" format="reference|color" />
+    <attr name="item.placeholder" format="reference|color" />
+    <attr name="item.checkCircle.backgroundColor" format="reference|color" />
+    <attr name="item.checkCircle.borderColor" format="reference|color" />
+    <attr name="capture.textColor" format="reference|color" />
+
+    <attr name="indexBarTextSize" format="dimension" />
+
+    <declare-styleable name="IndexBar">
+        <attr name="indexBarTextSize" />
+        <attr name="indexBarPressBackground" format="color" />
+    </declare-styleable>
+
+    <attr name="iconSize" format="dimension" />
+    <attr name="iconMargin" format="dimension" />
+    <attr name="iconSrc" format="reference" />
+    <attr name="iconLeft" format="reference" />
+    <attr name="iconRight" format="reference" />
+    <attr name="duration_max" format="integer" />
+    <declare-styleable name="JCameraView">
+        <attr name="iconSize" />
+        <attr name="iconMargin" />
+        <attr name="iconSrc" />
+        <attr name="iconLeft" />
+        <attr name="iconRight" />
+        <attr name="duration_max" />
+    </declare-styleable>
+
+    <declare-styleable name="pickerview">
+        <attr name="wheelview_gravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="wheelview_textSize" format="dimension" />
+        <attr name="wheelview_textColorOut" format="color" />
+        <attr name="wheelview_textColorCenter" format="color" />
+        <attr name="wheelview_dividerColor" format="color" />
+        <attr name="wheelview_lineSpacingMultiplier" format="float" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ShadeImageView">
+        <attr name="shadeRadio" format="dimension" />
+        <attr name="shadeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SynthesizedImageView">
+        <!--合成图片的背景-->
+        <attr name="synthesized_image_bg" format="color" />
+        <!--合成图片的默认图片-->
+        <attr name="synthesized_default_image" format="reference" />
+        <!--合成图片的尺寸-->
+        <attr name="synthesized_image_size" format="dimension" />
+        <!--多图片之间的空隙间隔-->
+        <attr name="synthesized_image_gap" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="UserIconView">
+        <!--默认头像-->
+        <attr name="default_image" format="reference" />
+        <attr name="image_radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LineControllerView">
+        <!-- 名称 -->
+        <attr name="name" format="string" />
+        <!-- 内容或当前状态 -->
+        <attr name="subject" format="string" />
+        <!-- 是否是列表中最后一个 -->
+        <attr name="isBottom" format="boolean" />
+        <!-- 是否可以跳转 -->
+        <attr name="canNav" format="boolean" />
+        <!-- 是否是开关 -->
+        <attr name="isSwitch" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundRectLayout">
+        <attr name="view_radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SuitedImageView">
+        <attr name="resize_base_on" format="enum">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PileLayout">
+        <attr name="PileLayout_vertivalSpace" format="dimension" />
+        <attr name="PileLayout_pileWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="NineGridView">
+        <!--        只显示一张图片时的最大图片大小-->
+        <attr name="ngv_singleImageSize" format="dimension" />
+        <!--        只显示一张图片时图片宽高比-->
+        <attr name="ngv_singleImageRatio" format="float" />
+        <!--        网格显示图片时，图片之间的间距，默认3dp-->
+        <attr name="ngv_gridSpacing" format="dimension" />
+        <!--        最多显示图片的数量，默认最大9张-->
+        <attr name="ngv_maxSize" format="integer" />
+        <!--        支持fill和grid两种显示模式，其中grid模式在显示4张图片时采用2*2的布局-->
+        <attr name="ngv_mode" format="enum">
+            <enum name="fill" value="0" />
+            <enum name="grid" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LimitedLinearLayout">
+        <attr name="maxWidth" format="dimension" />
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="VerticalSeekBar">
+        <attr name="seekBarRotation">
+            <!-- Clock wise - 90 deg; top = min, bottom = max -->
+            <enum name="CW90" value="90" />
+            <!-- Clock wise - 270 deg; bottom = min, top = max -->
+            <enum name="CW270" value="270" />
+        </attr>
+    </declare-styleable>
+
+
+    <!--录音-->
+    <declare-styleable name="AudioRecordView">
+        <!--录音时长 单位分钟-->
+        <attr name="recordTimeInMinutes" format="integer" />
+        <!--录音采样频率 每秒钟采样个数-->
+        <attr name="recordSamplingFrequency" format="integer" />
+        <!--是否显示刻度尺-->
+        <attr name="showRule" format="boolean" />
+        <!--是否显示刻度尺上的文字-->
+        <attr name="showRuleText" format="boolean" />
+        <!--一格大刻度多少格小刻度-->
+        <attr name="intervalCount" format="integer" />
+        <!--刻度间隔-->
+        <attr name="scaleIntervalLength" format="dimension" />
+        <!--尺子 小刻度 高-->
+        <attr name="smallScaleStrokeLength" format="dimension" />
+        <!--尺子 小刻度 宽-->
+        <attr name="smallScaleStrokeWidth" format="dimension" />
+        <!--尺子 大刻度 高-->
+        <attr name="bigScaleStrokeLength" format="dimension" />
+        <!--尺子 大刻度 宽-->
+        <attr name="bigScaleStrokeWidth" format="dimension" />
+        <!--尺子 底部横线 颜色-->
+        <attr name="ruleHorizontalLineColor" format="color" />
+        <!--尺子 底部横线 线宽-->
+        <attr name="ruleHorizontalLineStrokeWidth" format="dimension" />
+        <!--尺子 底部横线 线高度-->
+        <attr name="ruleHorizontalLineHeight" format="dimension" />
+        <!--尺子 竖线颜色-->
+        <attr name="ruleVerticalLineColor" format="color" />
+        <!--尺子上文字颜色-->
+        <attr name="ruleTextColor" format="color" />
+        <!--尺子上文字大小-->
+        <attr name="ruleTextSize" format="dimension" />
+        <!--水平线 颜色-->
+        <attr name="middleHorizontalLineColor" format="color" />
+        <!--水平线 stroke width-->
+        <attr name="middleHorizontalLineStrokeWidth" format="dimension" />
+        <!--垂直线 颜色-->
+        <attr name="middleVerticalLineColor" format="color" />
+        <!--垂直线 stroke width-->
+        <attr name="middleVerticalLineStrokeWidth" format="dimension" />
+        <!--垂直线 两个圆的圆心 半径-->
+        <attr name="middleCircleRadius" format="dimension" />
+        <!--声波 矩形 颜色-->
+        <attr name="rectColor" format="color" />
+        <!--声波 矩形 颜色-->
+        <attr name="rectInvertColor" format="color" />
+        <!--声波矩形 间距-->
+        <attr name="rectGap" format="dimension" />
+        <!--声波矩形 距离顶部垂直间距-->
+        <attr name="rectMarginTop" format="dimension" />
+        <!--底部文字颜色-->
+        <attr name="bottomTextColor" format="color" />
+        <!--底部文字大小-->
+        <attr name="bottomTextSize" format="dimension" />
+        <!--底部 文字区域 背景颜色-->
+        <attr name="bottomRectColor" format="color" />
+        <!--是否显示上一段可删除-->
+        <attr name="showStopFlag" format="boolean" />
+        <!--是否支持手势滑动-->
+        <attr name="canTouch" format="boolean" />
+        <!--是否显示中间线-->
+        <attr name="showVerticalLine" format="boolean" />
+        <!--是否显示中间线-->
+        <attr name="showHorizontalLine" format="boolean" />
+
+    </declare-styleable>
+
+
+    <!--播放音频-->
+    <declare-styleable name="PlayAudio">
+        <!--声音数据采集的频率 每秒钟采集个数-->
+        <attr name="p_audioSourceFrequency" format="integer" />
+        <!--中心垂直线的宽-->
+        <attr name="p_circleMarginTop" format="dimension" />
+        <!--波形 距离圆点间距-->
+        <attr name="p_rectMarginTop" format="dimension" />
+        <!--圆形半径-->
+        <attr name="p_circleRadius" format="dimension" />
+        <!--中心垂直线的宽-->
+        <attr name="p_centerLineWidth" format="dimension" />
+        <!--中心垂直线的颜色-->
+        <attr name="p_centerLineColor" format="color" />
+        <!--没有扫描的矩形颜色-->
+        <attr name="p_unSwipeColor" format="color" />
+        <!--扫描过的矩形颜色-->
+        <attr name="p_swipedColor" format="color" />
+        <!--波形宽-->
+        <attr name="p_lineWidth" format="dimension" />
+        <!--波形 间距-->
+        <attr name="p_rectGap" format="dimension" />
+        <!--是否可以滑动View-->
+        <attr name="p_canTouchScroll" format="boolean" />
+        <!--裁剪区域颜色-->
+        <attr name="p_cropMashColor" format="color" />
+        <!--裁剪线顶部文字大小-->
+        <attr name="p_cropTimeTextSize" format="dimension" />
+        <!--裁剪线顶部文字颜色-->
+        <attr name="p_cropTimeTextColor" format="color" />
+        <!--裁剪线顶部文字距离 圆心的距离-->
+        <attr name="p_timeTextMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseVisualizerView">
+        <attr name="lineColor" format="color" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+
+    <!-- 圆角图片 -->
+    <declare-styleable name="CircleImageView">
+        <attr name="radiusCIV" format="dimension">圆角半径</attr>
+        <attr name="topLeftRadiusCIV" format="dimension">左上</attr>
+        <attr name="topRightRadiusCIV" format="dimension">右上</attr>
+        <attr name="bottomLeftRadiusCIV" format="dimension">左下</attr>
+        <attr name="bottomRightRadiusCIV" format="dimension">右下</attr>
+
+        <attr name="topLeftRadius_xCIV" format="dimension">左上X轴</attr>
+        <attr name="topLeftRadius_yCIV" format="dimension">左上Y轴</attr>
+
+        <attr name="topRightRadius_xCIV" format="dimension">右上X轴</attr>
+        <attr name="topRightRadius_yCIV" format="dimension">右上Y轴</attr>
+
+        <attr name="bottomLeftRadius_xCIV" format="dimension">左下X轴</attr>
+        <attr name="bottomLeftRadius_yCIV" format="dimension">左下Y轴</attr>
+
+        <attr name="bottomRightRadius_xCIV" format="dimension">右下X轴</attr>
+        <attr name="bottomRightRadius_yCIV" format="dimension">右下Y轴</attr>
+
+        <attr name="borderWidthCIV" format="dimension">描边宽度</attr>
+        <attr name="borderColorCIV" format="color">描边颜色</attr>
+        <attr name="borderSpaceCIV" format="dimension">描边与图片间距</attr>
+        <!-- 无论是什么展示形式，都会填充满整个控件，如果不想填充满，自己去改onDraw里面的 dst -->
+        <attr name="scaleTypeCIV" format="enum">
+            <enum name="top" value="0">从图片顶部开始绘制，即肯定会展示图片顶部，默认</enum>
+            <enum name="center" value="1">展示图片中心</enum>
+            <enum name="bottom" value="2">从图片底部开始绘制，即肯定会展示图片底部</enum>
+            <enum name="fitXY" value="3">完全展示，有可能变形</enum>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="SwitchButton">
+        <!--        hasShadow	是否显示按钮阴影-->
+        <!--        primaryColor	开启状态背景色-->
+        <!--        primaryColorDark	开启状态按钮描边色-->
+        <!--        offColor	关闭状态描边色-->
+        <!--        offColorDark	关闭状态按钮描边色-->
+        <!--        shadowColor	按钮阴影色-->
+        <!--        ratioAspect	按钮宽高形状比率(0,1] 不推荐大幅度调整-->
+        <!--        isOpened	初始化默认状态-->
+        <attr name="hasShadow" format="boolean" />
+        <attr name="primaryColor" format="color" />
+        <attr name="primaryColorDark" format="color" />
+        <attr name="offColor" format="color" />
+        <attr name="offColorDark" format="color" />
+        <attr name="barColor" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="shadowColor" format="color" />
+        <attr name="ratioAspect" format="float" />
+        <attr name="isOpened" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ShimmerRecyclerView">
+        <attr name="shimmer_layout" format="reference" />
+        <attr name="shimmer_child_count" format="integer|reference" />
+        <attr name="shimmer_layout_manager_type" format="enum">
+            <enum name="linear_vertical" value="0" />
+            <enum name="linear_horizontal" value="1" />
+            <enum name="grid" value="2" />
+            <enum name="staggered_grid" value="3" />
+        </attr>
+        <attr name="shimmer_grid_child_count" format="integer|reference" />
+        <attr name="shimmer_shimmer_color" format="color|reference" />
+        <attr name="shimmer_angle" format="integer|reference" />
+        <attr name="shimmer_view_holder_item_background" format="color|reference" />
+        <attr name="shimmer_duration" format="integer|reference" />
+        <attr name="shimmer_mask_width" format="float|reference" />
+        <attr name="shimmer_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="GifImageView">
+        <!--gif文件引用-->
+        <attr name="gif_src" format="reference" />
+        <!--是否加载完自动播放-->
+        <attr name="auth_play" format="boolean" />
+        <!--播放次放，默认永远播放-->
+        <attr name="play_count" format="integer" />
+        <!--播放完成后是否停留在最后一帧，默认false-->
+        <attr name="end_last_frame" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RepeatScrollView">
+        <!-- 轮播背景图 -->
+        <attr name="src" format="reference" />
+        <!-- 滚动一屏时间 单位ms -->
+        <attr name="scroll_screen_time" format="float" />
+
+    </declare-styleable>
+
+    <declare-styleable name="TabRadioButton">
+        <attr name="trb_enable_animation" format="boolean" />
+        <attr name="trb_duration" format="integer" />
+        <attr name="trb_scale_rate" format="float" />
+        <attr name="trb_drawable_size" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CountdownView">
+        <attr name="isHideTimeBackground" format="boolean" />
+        <attr name="isShowTimeBgDivisionLine" format="boolean" />
+        <attr name="timeBgDivisionLineColor" format="color" />
+        <attr name="timeBgDivisionLineSize" format="dimension" />
+        <attr name="timeBgColor" format="color" />
+        <attr name="timeBgSize" format="dimension" />
+        <attr name="timeBgRadius" format="dimension" />
+
+        <attr name="isTimeTextBold" format="boolean" />
+        <attr name="timeTextSize" format="dimension" />
+        <attr name="timeTextColor" format="color" />
+        <attr name="isShowDay" format="boolean" />
+        <attr name="isShowHour" format="boolean" />
+        <attr name="isShowMinute" format="boolean" />
+        <attr name="isShowSecond" format="boolean" />
+        <attr name="isShowMillisecond" format="boolean" />
+        <attr name="isConvertDaysToHours" format="boolean" />
+
+        <attr name="isSuffixTextBold" format="boolean" />
+        <attr name="suffixTextSize" format="dimension" />
+        <attr name="suffixTextColor" format="color" />
+        <attr name="suffix" format="string" />
+        <attr name="suffixDay" format="string" />
+        <attr name="suffixHour" format="string" />
+        <attr name="suffixMinute" format="string" />
+        <attr name="suffixSecond" format="string" />
+        <attr name="suffixMillisecond" format="string" />
+        <attr name="suffixGravity">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="suffixLRMargin" format="dimension" />
+        <attr name="suffixDayLeftMargin" format="dimension" />
+        <attr name="suffixDayRightMargin" format="dimension" />
+        <attr name="suffixHourLeftMargin" format="dimension" />
+        <attr name="suffixHourRightMargin" format="dimension" />
+        <attr name="suffixMinuteLeftMargin" format="dimension" />
+        <attr name="suffixMinuteRightMargin" format="dimension" />
+        <attr name="suffixSecondLeftMargin" format="dimension" />
+        <attr name="suffixSecondRightMargin" format="dimension" />
+        <attr name="suffixMillisecondLeftMargin" format="dimension" />
+
+        <attr name="isShowTimeBgBorder" format="boolean" />
+        <attr name="timeBgBorderColor" format="color" />
+        <attr name="timeBgBorderSize" format="dimension" />
+        <attr name="timeBgBorderRadius" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="WaterRippleView">
+        <attr name="rippleSpacing" format="dimension|reference" />
+        <attr name="rippleCount" format="integer|reference" />
+        <attr name="rippleSpeed" format="integer|reference" />
+        <attr name="rippleColor" format="color|reference" />
+        <attr name="rippleCenterIcon" format="reference" />
+        <attr name="rippleAutoRunning" format="boolean" />
+    </declare-styleable>
+
+    <!--涟漪控件属性-->
+    <!--    CRVColor：View控件的颜色-->
+    <!--    CRVSpeed：向外扩散的速度-->
+    <!--    CRVDensity：圆形波纹扩散的间距-->
+    <!--    CRVIsFill：是否开启填充模式，true为实心圆-->
+    <!--    CRVIsAlpha：是否开启渐变效果，true为开启-->
+    <declare-styleable name="CircleRippleView">
+        <attr name="CRVColor" format="color" />
+        <attr name="CRVSpeed" format="integer" />
+        <attr name="CRVDensity" format="integer" />
+        <attr name="CRVIsFill" format="boolean" />
+        <attr name="CRVIsAlpha" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="WaveSwipeHeader">
+        <attr name="wshPrimaryColor" format="color" />
+        <attr name="wshAccentColor" format="color" />
+        <attr name="wshShadowColor" format="color" />
+        <attr name="wshShadowRadius" format="dimension"/>
+        <attr name="srlPrimaryColor"  />
+        <attr name="srlAccentColor" />
+        <attr name="srlShadowColor" />
+        <attr name="srlShadowRadius" />
+    </declare-styleable>
+</resources>
